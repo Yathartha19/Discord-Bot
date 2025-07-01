@@ -34,7 +34,7 @@ async def get_general_channels():
         for channel in guild.text_channels:
             if channel.name == "general":
                 general_channels.append(channel)
-                break  # One 'general' per guild is enough
+                break  
     return general_channels
 
 @tasks.loop(minutes=1)
@@ -50,7 +50,6 @@ async def good_morning():
     else:
         print("No general channels found!")
 
-# ✅ Slash command for badge
 @bot.tree.command(name="ping", description="Ping to keep Active Developer Badge")
 async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("🏓 Pong!")
